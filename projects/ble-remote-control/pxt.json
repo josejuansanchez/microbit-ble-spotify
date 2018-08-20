@@ -11,9 +11,6 @@
         "README.md",
         "main.ts"
     ],
-    "testFiles": [
-        "test.ts"
-    ],
     "yotta": {
         "config": {
             "microbit-dal": {
