@@ -18,7 +18,7 @@ Although this script is using [BLE][0] there is no need to pair your [micro:bit]
 }
 ```
 
-## How to build an deploy the project
+## How to build and deploy the project
 
 1. Install [node.js][2].
 
