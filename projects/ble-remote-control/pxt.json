@@ -1,0 +1,27 @@
+{
+    "name": "ble-remote-control",
+    "version": "1.0.0",
+    "description": "BLE Remote control for Spotify on macOS with Node.js and AppleScript.",
+    "license": "GPL-3.0-only",
+    "dependencies": {
+        "core": "*",
+        "bluetooth": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1
+                }
+            }
+        }
+    },    
+    "public": false
+}
