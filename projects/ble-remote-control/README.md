@@ -126,7 +126,7 @@ To run these actions the [micro:bit][4] device needs to be in one of these state
 When the [micro:bit][4] is in one of these states the user can press the `A` or `B` buttons in order to raise a custom event to control [Spotify][1]. This table shows what are the different possibilities that an user can perform.
 
 |  Input \ State | **P** | **V** | **N** |
-|--------|-------|-------|-------|-------|
+|----------------|-------|-------|-------|
 | **Press `A` button**  | Play or pause track | Turn volume up | Go previous track |
 | **Press `B` button**  |  | Turn volume down | Go next track |
 
