@@ -28,9 +28,9 @@
 enum state {
     DISCONNECTED_BLE = 0,
     CONNECTED_BLE = 1,
-    PLAY_CONTROL = 2,
-    VOLUME_CONTROL =  3,
-    NEXT_PREV_CONTROL = 4
+    PLAY_READY = 2,
+    VOLUME_READY =  3,
+    NEXT_READY = 4
 }
 
 let current_state = state.DISCONNECTED_BLE;
@@ -64,15 +64,15 @@ basic.forever(() => {
             basic.showString("C");
             break;
 
-        case state.PLAY_CONTROL:
+        case state.PLAY_READY:
             basic.showString("P");
             break;
         
-        case state.VOLUME_CONTROL:
+        case state.VOLUME_READY:
             basic.showString("V");
             break;
         
-        case state.NEXT_PREV_CONTROL:
+        case state.NEXT_READY:
             basic.showString("N");
             break;
     }
@@ -81,17 +81,17 @@ basic.forever(() => {
 input.onButtonPressed(Button.A, () => {
     console.log("A");
     switch (current_state) {
-        case state.PLAY_CONTROL:
+        case state.PLAY_READY:
             console.log("play/pause");
             control.raiseEvent(EVENT_CONTROL_SPOTIFY, EventValue.PLAY_PAUSE);
             break;
 
-        case state.VOLUME_CONTROL:
+        case state.VOLUME_READY:
             console.log("volume -");
             control.raiseEvent(EVENT_CONTROL_SPOTIFY, EventValue.VOLUME_DOWN);
             break;
         
-        case state.NEXT_PREV_CONTROL:
+        case state.NEXT_READY:
             console.log("prev");
             control.raiseEvent(EVENT_CONTROL_SPOTIFY, EventValue.PREV);
             break;
@@ -101,12 +101,12 @@ input.onButtonPressed(Button.A, () => {
 input.onButtonPressed(Button.B, () => {
     console.log("B");
     switch (current_state) {
-        case state.VOLUME_CONTROL:
+        case state.VOLUME_READY:
             console.log("volume +");
             control.raiseEvent(EVENT_CONTROL_SPOTIFY, EventValue.VOLUME_UP);
             break;
 
-        case state.NEXT_PREV_CONTROL:
+        case state.NEXT_READY:
             console.log("next");
             control.raiseEvent(EVENT_CONTROL_SPOTIFY, EventValue.NEXT);
             break;
@@ -117,19 +117,19 @@ input.onButtonPressed(Button.AB, () => {
     console.log("AB");
     switch (current_state) {
         case state.CONNECTED_BLE:
-            current_state = state.PLAY_CONTROL;
+            current_state = state.PLAY_READY;
             break;
         
-        case state.PLAY_CONTROL:
-            current_state = state.VOLUME_CONTROL;
+        case state.PLAY_READY:
+            current_state = state.VOLUME_READY;
             break;
         
-        case state.VOLUME_CONTROL:
-            current_state = state.NEXT_PREV_CONTROL;
+        case state.VOLUME_READY:
+            current_state = state.NEXT_READY;
             break;
         
-        case state.NEXT_PREV_CONTROL:
-            current_state = state.PLAY_CONTROL;
+        case state.NEXT_READY:
+            current_state = state.PLAY_READY;
             break;
     }
 })
