@@ -1,0 +1,20 @@
+{
+  "name": "ble-event-listener",
+  "version": "1.0.0",
+  "description": "Listen to a custom event raised by the BBC micro:bit over BLE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["micro:bit", "ble", "spotify"],
+  "author": "José Juan Sánchez",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "bbc-microbit": "^0.2.0",
+    "spotify-node-applescript": "^1.1.1",
+    "xpc-connection": "sandeepmistry/node-xpc-connection#pull/26/head"
+  },
+  "resolutions": {
+    "xpc-connection": "sandeepmistry/node-xpc-connection#pull/26/head"
+  }
+}
