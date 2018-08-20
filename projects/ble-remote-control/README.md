@@ -2,7 +2,9 @@
 
 [Bluetooth Low Energy (BLE)][0] remote control for [Spotify][1] on **macOS** with [Node.js][2] and [AppleScript][3]. This script raise a custom event over [BLE][0] when the [micro:bit][4] buttons ared pressed. Users can perform several actions like play or pause tracks, turn volume up or down and go to next or previous track.
 
-Although this script is using [BLE][0] there is no need to pair your [micro:bit][4] with your Apple device. In order to get this, the `pxt.json` file has been configured as follows. The property of the bluetooth json object called `open` has been configured with a value of `1` which means *no security*.
+## No pairing security
+
+Although this script is using [BLE][0] there is no need to pair your [micro:bit][4] with your computer. In order to get this, the `pxt.json` file has been configured as follows. The property of the bluetooth json object called `open` has been configured with a value of `1` which means *no security*.
 
 ```json
 "yotta": {
@@ -67,6 +69,10 @@ copying binary.hex to /Volumes/MICROBIT/
 ```
 
 Now, your [micro:bit][4] device is ready to work as a remote control for [Spotify][1] on **macOS** with [Node.js][2] and [AppleScript][3]. The next step is to run the `ble-event-listener` script to listen to the custom events raised by the BBC micro:bit over [BLE][0].
+
+## Avoid the build process and copy the .hex file
+
+TODO
 
 ## How it works
 
