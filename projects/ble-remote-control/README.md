@@ -1,6 +1,91 @@
-# ble-remote-control
+# Bluetooth Low Energy remote control for Spotify
 
-[Bluetooth Low Energy (BLE)][0] remote control for [Spotify][1] on **macOS** with [Node.js][2] and [AppleScript][3]. This script raise a custom event over [BLE][0] when the [micro:bit][4] buttons ared pressed. Users can perform several actions like play or pause tracks, turn volume up or down and go to next or previous track.
+Bluetooth Low Energy remote control for Spotify on macOS with Node.js and AppleScript.
+
+## Description
+
+This project allows you to configure your [micro:bit][4] to work as [Bluetooth Low Energy (BLE)][0] remote control to control an instance of [Spotify][1] running on **macOS** with [Node.js][2] and [AppleScript][3]. Users can use [micro:bit][4] to perform several actions like play or pause tracks, turn volume up or down and go to next or previous track. To carry out this actions, a custom event with a specific value for each action is raised over [BLE][0] when the [micro:bit][4] buttons are pressed by the user. The events raised by the [micro:bit][4] are catched by a [Node.js][2] script that is running on a computer with **macOS**.
+
+The project is composed by two pieces of software: 
+
+* the **remote control**, that is the software that runs on the [micro:bit][4].
+* the **event listener**, that is the software that runs on your computer.
+
+## How it works
+
+![Diagram](resources/diagram/diagram.png)
+
+1. In this diagram the [micro:bit][4] is ready in the *Play* state, this is known because the [micbro:bit][4] is showing the letter `P` on the LED screen. A user press the `A` button and then a custom event is raised over [BLE][0], with an specific value to indicate that we want to play or pause a track on [Spotify][1].
+
+2. The event listener is a [Node.js][2] script that is running on the computer and is waiting for the events raised over [BLE][0] by the [micro:bit][4] device.
+
+3. When a custom event is catched by the [Node.js][2] script it uses the API of the [spotify-node-applescript][3] package in order to control the instance of [Spotify][1] running on the computer.
+
+## Remote Control details
+
+### States
+
+The [micro:bit][4] device can be in one of a finite number of states at any given time. The list of available states are the following:
+
+<!--
+|  Symbol |     State   |  Description |
+|---------|-------------|--------------|
+| **D**  | Disconnected | The [micro:bit][4] device is **not connected** with the computer via [BLE][0].
+| **C**  | Connected | The [micro:bit][4] device is **connected** with the computer via [BLE][0].
+| **P**  | Play | The [micro:bit][4] device is ready to play or pause a track.
+| **V**  | Volume | The [micro:bit][4] device is ready to turn volume up or down.
+| **N**  | Next | The [micro:bit][4] device is ready to go to next or previous track.
+-->
+
+|  micro:bit's LED screen | State | Description |
+|-------------------------|-------|-------------|
+| ![Disconnected State](resources/img/d.png) | **D**isconnected | The [micro:bit][4] device is **not connected** with the computer via [BLE][0].
+| ![Connected State](resources/img/c.png) | **C**onnected | The [micro:bit][4] device is **connected** with the computer via [BLE][0].
+| ![Play State](resources/img/p.png) | **P**lay | The [micro:bit][4] device is ready to play or pause a track.
+| ![Volume State](resources/img/v.png) | **V**olume | The [micro:bit][4] device is ready to turn volume up or down.
+| ![Next State](resources/img/n.png) | **N**ext | The [micro:bit][4] device is ready to go to next or previous track.
+
+### Inputs
+
+The state machine can change from one state to another in response to external inputs. In our project there are two possible inputs:
+
+| Input |      Description |
+|-------|------------------|
+| **BLE** | When the [micro:bit][4] establishes a [BLE][0] connection with a computer. |
+| **AB**  | When the [micro:bit][4] buttons `A` and `B` are pressed together. |
+
+### Transitions
+
+The change from one state to another is called a transition.
+
+### State machine diagram
+
+The state diagram for the project can be modeled as follows:
+
+![State Machine](resources/img/state_machine.png)
+
+Where each state is represented by a node (circle) and the edges (arrows) show the transitions from one state to another. Each arrow is labeled with the input that triggers that transition.
+
+### Actions
+
+The actions that users can perform to control [Spotify][1] via [BLE][0] are:
+
+* Play or pause tracks.
+* Turn volume up or down.
+* Go to next or previous track.
+
+To run these actions the [micro:bit][4] device needs to be in one of these states: 
+
+* **P** (Play).
+* **V** (Volume).
+* **N** (Next).
+
+When the [micro:bit][4] is in one of these states the user can press the `A` or `B` buttons in order to raise a custom event to control [Spotify][1]. This table shows what are the different possibilities that an user can perform.
+
+|  Input \ State | **P** | **V** | **N** |
+|----------------|-------|-------|-------|
+| **Press `A` button**  | Play or pause track | Turn volume up | Go previous track |
+| **Press `B` button**  |  | Turn volume down | Go next track |
 
 ## No pairing security
 
@@ -18,7 +103,7 @@ Although this script is using [BLE][0] there is no need to pair your [micro:bit]
 }
 ```
 
-## How to build and deploy the project
+## How to build and deploy the *remote control*
 
 1. Install [node.js][2].
 
@@ -74,61 +159,17 @@ Now, your [micro:bit][4] device is ready to work as a remote control for [Spotif
 
 TODO
 
-## How it works
+## How to run the *event listener*
 
-### States
+Turn on Bluetooth on your computer.
+Launch 
+1. Use [micro:bit][4]
 
-The [micro:bit][4] device can be in one of a finite number of states at any given time. The list of available states are the following:
 
-|  Symbol |     State   |  Description |
-|---------|-------------|--------------|
-| **D**  | Disconnected | The [micro:bit][4] device is **not connected** with the computer via [BLE][0].        |
-| **C**  | Connected | The [micro:bit][4] device is **connected** with the computer via [BLE][0].
-| **P**  | Play | The [micro:bit][4] device is ready to play or pause a track.
-| **V**  | Volume | The [micro:bit][4] device is ready to turn volume up or down.
-| **N**  | Next | The [micro:bit][4] device is ready to go to next or previous track.
+## Packages used in this project
 
-### Inputs
-
-The state machine can change from one state to another in response to external inputs. In our project there are two possible inputs:
-
-| Input |      Description |
-|-------|------------------|
-| **BLE** | When the [micro:bit][4] establishes a [BLE][0] connection with a computer. |
-| **AB**  | When the [micro:bit][4] buttons `A` and `B` are pressed together. |
-
-### Transitions
-
-The change from one state to another is called a transition.
-
-### State machine diagram
-
-The state diagram for the project can be modeled as follows:
-
-![State Machine](resources/img/state_machine.png)
-
-Where each state is represented by a node (circle) and the edges (arrows) show the transitions from one state to another. Each arrow is labeled with the input that triggers that transition.
-
-## Remote Control
-
-The actions that users can perform to control [Spotify][1] via [BLE][0] are:
-
-* Play or pause tracks.
-* Turn volume up or down.
-* Go to next or previous track.
-
-To run these actions the [micro:bit][4] device needs to be in one of these states: 
-
-* **P** (Play).
-* **V** (Volume).
-* **N** (Next).
-
-When the [micro:bit][4] is in one of these states the user can press the `A` or `B` buttons in order to raise a custom event to control [Spotify][1]. This table shows what are the different possibilities that an user can perform.
-
-|  Input \ State | **P** | **V** | **N** |
-|----------------|-------|-------|-------|
-| **Press `A` button**  | Play or pause track | Turn volume up | Go previous track |
-| **Press `B` button**  |  | Turn volume down | Go next track |
+* [node-bbc-microbit](https://github.com/sandeepmistry/node-bbc-microbit).
+* [spotify-node-applescript](https://github.com/andrehaveman/spotify-node-applescript).
 
 ## References
 
