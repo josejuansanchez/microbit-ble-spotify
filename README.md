@@ -176,7 +176,7 @@ node index.js
 When you run the script, you will see a similar message to this:
 
 ```
-Scanning for microbit...
+Scanning for micro:bit...
 ```
 
 Now, your *event listener* is ready to accept [BLE][0] connections from a [micro:bit][4] device.
