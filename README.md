@@ -15,7 +15,7 @@ The project is composed by two pieces of software:
 
 ![Diagram](resources/diagram/diagram.png)
 
-1. In this diagram the [micro:bit][4] is ready in the *Play* state, this is known because the [micro:bit][4] is showing the letter `P` on the LED screen. A user press the `A` button and then a custom event is raised over [BLE][0], with an specific value to indicate that we want to play or pause a track on [Spotify][1].
+1. In this diagram the [micro:bit][4] is ready in the *Play* state, this is known because the [micro:bit][4] is showing the letter `P` on the LED screen. An user press the `A` button and then a custom event is raised over [BLE][0], with an specific value to indicate that we want to play or pause a track on [Spotify][1].
 
 2. The event listener is a [Node.js][2] script that is running on the computer and is waiting for the events raised over [BLE][0] by the [micro:bit][4] device.
 
