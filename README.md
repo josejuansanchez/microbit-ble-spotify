@@ -1,6 +1,6 @@
 # Bluetooth Low Energy remote control for Spotify
 
-Bluetooth Low Energy remote control for Spotify on macOS with Node.js and AppleScript.
+[Bluetooth Low Energy][0] remote control for [Spotify][1] on **macOS** with [Node.js][2] and [AppleScript][3].
 
 ## Description
 
@@ -155,16 +155,31 @@ copying binary.hex to /Volumes/MICROBIT/
 
 Now, your [micro:bit][4] device is ready to work as a remote control for [Spotify][1] on **macOS** with [Node.js][2] and [AppleScript][3]. The next step is to run the `ble-event-listener` script to listen to the custom events raised by the BBC micro:bit over [BLE][0].
 
-## Avoid the build process and copy the .hex file
+## Compiled Firmware
 
-TODO
+The compiled firmware is available in the `resources/firmware` folder of the project. If your want you can avoid the build process and copy the `.hex` file to [micro:bit][4] disk drive.
 
 ## How to run the *event listener*
 
-Turn on Bluetooth on your computer.
-Launch 
-1. Use [micro:bit][4]
+1. Go to `ble-event-listener` directory.
 
+```
+cd ble-event-listener
+```
+
+2. Run the [Node.js][2] script:
+
+```
+node index.js
+```
+
+When you run the script, you will see a similar message to this:
+
+```
+Scanning for microbit...
+```
+
+Now, your *event listener* is ready to accept [BLE][0] connections from a [micro:bit][4] device.
 
 ## Packages used in this project
 
