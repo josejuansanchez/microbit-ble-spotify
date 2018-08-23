@@ -1,13 +1,17 @@
 /*
 * BLE remote control for Spotify on macOS with Node.js and AppleScript.
-* This script raise a custom event over BLE when the micro:bit buttons ared pressed.
-* Users can perform several actions like play or pause tracks, turn volume up 
-* or down and go to next or previous track.
+*
+* Users can use micro:bit to perform several actions like play or pause tracks, 
+* turn volume up or down and go to next or previous track. To carry out this 
+* actions, a custom event with a specific value for each action is raised over 
+* BLE when the micro:bit buttons are pressed by the user. The events raised by 
+* the micro:bit are catched by a Node.js script that is running on a computer 
+* with macOS.
 *
 * Although this script is using BLE there is no need to pair your micro:bit 
-* with your Apple device. In order to get this, the pxt.json file has been 
-* configured as follows. The property of the bluetooth json object called 'open' 
-* has been configured with a value of 1 which means 'no security'.
+* with your computer. In order to get this, the pxt.json file has been 
+* configured as follows. The property of the bluetooth json object called open 
+* has been configured with a value of 1 which means no security.
 
     "yotta": {
         "config": {
@@ -18,6 +22,7 @@
             }
         }
     }  
+*
 * Reference:
 * - http://bluetooth-mdw.blogspot.com/2016/08/how-to-switch-off-need-to-pair-your.html
 * 
