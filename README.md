@@ -116,8 +116,8 @@ npm install -g pxt
 3. Clone this repository to your computer.
 
 ```
-git clone TODO
-cd microbit-ble-rc-spotify
+git clone https://github.com/josejuansanchez/microbit-ble-spotify.git
+cd microbit-ble-spotify
 cd ble-remote-control
 ```
 
