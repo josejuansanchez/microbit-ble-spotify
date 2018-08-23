@@ -24,10 +24,10 @@ const EventValue = {
     PREV: 5
 }
 
-console.log("Scanning for microbit...");
+console.log("Scanning for micro:bit...");
 BBCMicrobit.discover(function(microbit) {
-  console.log(microbit);
-  console.log("Discovered microbit: id = %s, address = %s", microbit.id, microbit.address);
+  //console.log(microbit);
+  console.log("Discovered micro:bit: id = %s, address = %s", microbit.id, microbit.address);
 
   microbit.on('disconnect', function() {
     console.log("microbit disconnected!");
@@ -70,7 +70,7 @@ BBCMicrobit.discover(function(microbit) {
     }
   });
 
-  console.log("Connecting to microbit...");
+  console.log("Connecting to micro:bit...");
   microbit.connectAndSetUp(() => {
     console.log("Connected");
 
