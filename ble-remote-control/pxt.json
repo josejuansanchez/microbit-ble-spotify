@@ -8,7 +8,6 @@
         "bluetooth": "*"
     },
     "files": [
-        "README.md",
         "main.ts"
     ],
     "yotta": {
@@ -19,6 +18,6 @@
                 }
             }
         }
-    },    
+    },
     "public": false
 }
