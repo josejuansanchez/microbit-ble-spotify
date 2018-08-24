@@ -13,6 +13,10 @@ The project is composed by two pieces of software:
 * the **remote control**, that is the software that runs on the [micro:bit][4].
 * the **event listener**, that is the software that runs on your computer.
 
+## Video
+
+[![YouTube Video](https://img.youtube.com/vi/jZdrvi8mveU/0.jpg)](http://www.youtube.com/watch?v=jZdrvi8mveU)
+
 ## How it works
 
 ![Diagram](resources/diagram/diagram.png)
