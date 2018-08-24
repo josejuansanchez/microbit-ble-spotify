@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["micro:bit", "ble", "spotify"],
+  "keywords": [
+    "micro:bit",
+    "ble",
+    "spotify"
+  ],
   "author": "José Juan Sánchez",
   "license": "GPL-3.0-only",
   "dependencies": {
