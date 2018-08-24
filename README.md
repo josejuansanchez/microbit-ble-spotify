@@ -1,4 +1,4 @@
-# Bluetooth Low Energy remote control for Spotify
+# Bluetooth Low Energy remote control for Spotify [![Build Status](https://travis-ci.org/josejuansanchez/microbit-ble-spotify.svg?branch=master)](https://travis-ci.org/josejuansanchez/microbit-ble-spotify)
 
 [Bluetooth Low Energy][0] remote control for [Spotify][1] on **macOS** with [Node.js][2] and [AppleScript][3].
 
