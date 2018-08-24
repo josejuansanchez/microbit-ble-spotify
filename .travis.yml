@@ -3,6 +3,8 @@ node_js:
     - "10.9.0"
 before_script:
     - cd ble-remote-control
+before_install:
+    - cd ble-remote-control
 script:
     - "npm install -g pxt"
     - "pxt target microbit"
