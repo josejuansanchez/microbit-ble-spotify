@@ -6,7 +6,7 @@
 
 ## Description
 
-This project allows you to configure your [micro:bit][4] to work as [Bluetooth Low Energy (BLE)][0] remote control to control an instance of [Spotify][1] running on **macOS** with [Node.js][2] and [AppleScript][3]. Users can use [micro:bit][4] to perform several actions like play or pause tracks, turn volume up or down and go to next or previous track. To carry out this actions, a custom event with a specific value for each action is raised over [BLE][0] when the [micro:bit][4] buttons are pressed by the user. The events raised by the [micro:bit][4] are catched by a [Node.js][2] script that is running on a computer with **macOS**.
+This project allows you to configure your [micro:bit][4] to work as a [Bluetooth Low Energy (BLE)][0] remote control to control an instance of [Spotify][1] running on **macOS** with [Node.js][2] and [AppleScript][3]. Users can use [micro:bit][4] to perform several actions like play or pause tracks, turn volume up or down and go to next or previous track. To carry out this actions, a custom event with a specific value for each action is raised over [BLE][0] when the [micro:bit][4] buttons are pressed by the user. The events raised by the [micro:bit][4] are catched by a [Node.js][2] script that is running on a computer with **macOS**.
 
 The project is composed by two pieces of software: 
 
